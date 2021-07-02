@@ -10,7 +10,7 @@ export default class extends React.Component {
     loading: false,
     error: null
   };
-
+  // 빈칸 방지
   handleSubmit = event => {
     event.preventDefault();
     const { searchTerm } = this.state;

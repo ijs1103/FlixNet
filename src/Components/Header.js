@@ -13,7 +13,7 @@ const Header = styled.header`
   align-items: center;
   background-color: rgba(20, 20, 20, 0.8);
   z-index: 10;
-  box-shadow: 0px 1px 5px 2px rgba(0, 0, 0, 0.8);
+  box-shadow: 0px 1px 5px 2px rgba(0, 0, 0, 0.5);
 `;
 
 const List = styled.ul`
@@ -44,7 +44,7 @@ export default withRouter(({ location: { pathname } }) => (
       </Item>
       <Item current={pathname === "/tv"}>
         <SLink to="/tv">TV</SLink>
-      </Item>
+      </Item> 
       <Item current={pathname === "/search"}>
         <SLink to="/search">Search</SLink>
       </Item>
