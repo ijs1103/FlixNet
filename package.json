@@ -27,7 +27,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "homepage": "https://hungry-noether-8ac1d6.netlify.com",
+  "homepage": "https://quizzical-visvesvaraya-07e92d.netlify.app/",
   "browserslist": [
     ">0.2%",
     "not dead",
