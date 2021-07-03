@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import UseTabs  from "../Components/UseTabs";
 import styled from "styled-components";
 import Carousel from "@brainhubeu/react-carousel";
-import "@brainhubeu/react-carousel/lib/style.css";
 
   const Container = styled.div`
     height: calc(100vh - 50px);
@@ -244,7 +243,7 @@ const TvDetail = ({data}) => {
                     <Carousel plugins={['arrows']}>
                       {currentItem.content.videos.map(
                         (video, index) => (
-                          <Video title={index} width="90%" height="400px" src={`https://www.youtube.com/embed/${video.key}?mute=1`} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></Video>
+                          <Video key={video.key} title={index} width="90%" height="400px" src={`https://www.youtube.com/embed/${video.key}?mute=1`} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></Video>
                         )
                       )}
                     </Carousel>
