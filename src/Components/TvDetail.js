@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import UseTabs  from "../Components/UseTabs";
 import styled from "styled-components";
 import Carousel from "@brainhubeu/react-carousel";
+import "@brainhubeu/react-carousel/lib/style.css";
 
   const Container = styled.div`
     height: calc(100vh - 50px);
@@ -240,6 +241,7 @@ const TvDetail = ({data}) => {
                 </ItemContainer> : (currentItem.tab === "trailer") ? 
                 <ItemContainer>
                   <Videos>
+                  {currentItem.content.videos && 
                     <Carousel plugins={['arrows']}>
                       {currentItem.content.videos.map(
                         (video, index) => (
@@ -247,6 +249,7 @@ const TvDetail = ({data}) => {
                         )
                       )}
                     </Carousel>
+                  }
                   </Videos>
                 </ItemContainer> :
                 <ItemContainer>

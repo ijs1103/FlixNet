@@ -5,6 +5,7 @@ import UseTabs  from "../Components/UseTabs";
 import styled from "styled-components";
 import imdbcon from "../assets/imdb.png";
 import Carousel from "@brainhubeu/react-carousel";
+import "@brainhubeu/react-carousel/lib/style.css";
 
 const Container = styled.div`
     height: calc(100vh - 50px);
@@ -206,6 +207,7 @@ const MovieDetail = ({data}) => {
                 </ItemContainer> : (currentItem.tab === "trailer") ? 
                 <ItemContainer>
                   <Videos>
+                    {currentItem.content.videos && 
                     <Carousel plugins={['arrows']}>
                       {currentItem.content.videos.map(
                         (video, index) => (
@@ -213,6 +215,7 @@ const MovieDetail = ({data}) => {
                         )
                       )}
                     </Carousel>
+                    }
                   </Videos>
                 </ItemContainer> : 
                 <ItemContainer>

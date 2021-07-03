@@ -6,6 +6,7 @@
     "@brainhubeu/react-carousel": "^2.0.4",
     "axios": "^0.18.0",
     "bootstrap": "^5.0.2",
+    "gh-pages": "^3.2.3",
     "prop-types": "^15.6.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
@@ -27,7 +28,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "homepage": "https://quizzical-visvesvaraya-07e92d.netlify.app/",
+  "homepage": "https://ijs1103.github.io/FlixNet",
   "browserslist": [
     ">0.2%",
     "not dead",
