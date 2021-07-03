@@ -1,15 +1,15 @@
 self.__precacheManifest = [
   {
-    "revision": "b787e6bada7a504506bc",
-    "url": "/FlixNet/static/js/main.b787e6ba.chunk.js"
+    "revision": "e8234869d59dff84b5b3",
+    "url": "/FlixNet/static/js/main.e8234869.chunk.js"
   },
   {
-    "revision": "9768bcdb365adedbec3d",
-    "url": "/FlixNet/static/css/1.49cec3cc.chunk.css"
+    "revision": "3ec05414254b5a003ee3",
+    "url": "/FlixNet/static/css/1.9217a41c.chunk.css"
   },
   {
-    "revision": "9768bcdb365adedbec3d",
-    "url": "/FlixNet/static/js/1.9768bcdb.chunk.js"
+    "revision": "3ec05414254b5a003ee3",
+    "url": "/FlixNet/static/js/1.3ec05414.chunk.js"
   },
   {
     "revision": "522d351a683c067da5dc",
@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/FlixNet/static/media/imdb.f67f7205.png"
   },
   {
-    "revision": "dd3c162c352d07b8fe08a782df881bff",
+    "revision": "cb08c6a728e10bf65a214289b6772c1d",
     "url": "/FlixNet/index.html"
   }
 ];
