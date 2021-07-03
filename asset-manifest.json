@@ -1,6 +1,6 @@
 {
-  "main.js": "/FlixNet/static/js/main.24f27fac.chunk.js",
-  "main.js.map": "/FlixNet/static/js/main.24f27fac.chunk.js.map",
+  "main.js": "/FlixNet/static/js/main.65583f51.chunk.js",
+  "main.js.map": "/FlixNet/static/js/main.65583f51.chunk.js.map",
   "static/css/1.49cec3cc.chunk.css": "/FlixNet/static/css/1.49cec3cc.chunk.css",
   "static/js/1.9768bcdb.chunk.js": "/FlixNet/static/js/1.9768bcdb.chunk.js",
   "static/js/1.9768bcdb.chunk.js.map": "/FlixNet/static/js/1.9768bcdb.chunk.js.map",
@@ -10,6 +10,6 @@
   "static/media/imdb.png": "/FlixNet/static/media/imdb.f67f7205.png",
   "static/css/1.49cec3cc.chunk.css.map": "/FlixNet/static/css/1.49cec3cc.chunk.css.map",
   "index.html": "/FlixNet/index.html",
-  "precache-manifest.7f3b40990ec25a8bdc0d8e679fa323af.js": "/FlixNet/precache-manifest.7f3b40990ec25a8bdc0d8e679fa323af.js",
+  "precache-manifest.4c1afbb1bd45289718c0a56243e59170.js": "/FlixNet/precache-manifest.4c1afbb1bd45289718c0a56243e59170.js",
   "service-worker.js": "/FlixNet/service-worker.js"
 }
