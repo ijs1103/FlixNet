@@ -245,7 +245,7 @@ const TvDetail = ({data}) => {
                     <Carousel plugins={['arrows']}>
                       {currentItem.content.videos.map(
                         (video, index) => (
-                          <Video key={video.key} title={index} width="90%" height="400px" src={`https://www.youtube.com/embed/${video.key}?mute=1`} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></Video>
+                          <Video key={video.key} title={index} width="90%" height="400px" src={`https://www.youtube.com/embed/${video.key}?mute=1`} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></Video>
                         )
                       )}
                     </Carousel>
