@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 import UseTabs  from "../Components/UseTabs";
 import styled from "styled-components";
 import imdbcon from "../assets/imdb.png";
+import Carousel from "@brainhubeu/react-carousel";
+import "@brainhubeu/react-carousel/lib/style.css";
 
 const Container = styled.div`
     height: calc(100vh - 50px);
@@ -33,7 +35,7 @@ const Container = styled.div`
     position: relative;
     z-index: 1;
     height: 100%;
-
+    
   `;
 
   const Cover = styled.div`
@@ -48,14 +50,15 @@ const Container = styled.div`
   const Data = styled.div`
     width: 70%;
     margin-left: 1rem;
+    overflow-y: scroll;
   `;
 
-const Title = styled.h3`
+const Title = styled.p`
   font-size: 2.5rem;
 `;
 const TabButton = styled.div`
     width: 33%;
-    color: darkgrey;
+    color: ${props => (props.current ? "white" : "darkgrey")};
     font-size: 1.5rem;
     text-align: center;
     text-transform: capitalize;
@@ -71,13 +74,14 @@ const TabMenu = styled.div`
 
 const ItemContainer = styled.div`
   margin: 1rem 0;
+  height: 70%;
 `;
 
 const Item = styled.span``;
 
 const Imdb = styled.img`
+  margin-left: 1.5rem;
   width: 3rem;
-  height: 100%;
 `;
 
 Imdb.defaultProps = {
@@ -94,22 +98,64 @@ const Overview = styled.p`
   line-height: 1.5;
 `;
 
-const SmallTitle = styled.p`
-  margin-top: 20px;
-  font-size: 1.3rem;
-`;
-
 const Cnames = styled.p`
-  font-size: 24px;
+  font-size: 1.5rem;
   margin-top: 1rem;
-  opacity: 0.5;
+  opacity: 0.7;
 `;
 
-const Header = styled.div`
-  height: 50%;
+const Videos = styled.div`
+  height: 100%;
+`;
+const Video = styled.iframe`
+`;
+const Image = styled.div`
+  background-image: url(${props => props.bgUrl});
+  width: 125px;
+  height: 180px;
+  background-size: cover;
+  border-radius: 4px;
+  background-position: center center;
+`;
+
+const ImageContainer = styled.div`
+  margin-bottom: 5px;
+  position: relative;
+`;
+
+const Stitle = styled.span`
+  display: block;
+  color: rgba(255, 255, 255, 0.5);
+`;
+
+const Casts = styled.div`
+  margin-top: 2rem;
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  ::-webkit-scrollbar {
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track {
+  background-color: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: yellow;
+  opacity: 0.7;
+  }
+  ::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+  }
+`;
+
+const Cast = styled.div`
+  margin-right: 1.5rem;
 `;
 
 const MovieDetail = ({data}) => {
+  
     const { currentItem, changeItem } = UseTabs(0, data);
     return (
     <Container>
@@ -130,11 +176,8 @@ const MovieDetail = ({data}) => {
           }
         />
         <Data>
-          <Header>
-          {data[0].content.videos ? <iframe title={data[0].content.videos[0].key} width="100%" height="100%" src={`https://www.youtube.com/embed/${data[0].content.videos[0].key}?autoplay=1&mute=1`} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            : <Title>{data[0].content.original_title}</Title>
-          }
-          </Header>
+          <Title>{data[0].content.original_title}<a href={`https://www.imdb.com/title/${data[0].content.imdb_id}`} target="_blank" rel="noopener noreferrer"><Imdb source={require("../assets/imdb.png")} /></a></Title>
+
           <TabMenu>
             {data.map(
                   (section, index) => (
@@ -143,28 +186,37 @@ const MovieDetail = ({data}) => {
           </TabMenu>
             {currentItem.tab === "info" ? 
               <ItemContainer>
-                <Item>
-                  {currentItem.content.release_date && currentItem.content.release_date.substring(0, 4)}
-                </Item>
-                <Divider>•</Divider>
-                <Item>
-                  {currentItem.content.runtime} min
-                </Item>
-                <Divider>•</Divider>
-                <Item>
-                  {currentItem.content.genres &&
-                    currentItem.content.genres.map((genre, index) =>
-                      index === currentItem.content.genres.length - 1
-                        ? genre.name
-                        : `${genre.name} / `
-                    )}
-                </Item>
-                <Divider></Divider>
-                <a href={`https://www.imdb.com/title/${currentItem.content.imdb_id}`} target="_blank" rel="noopener noreferrer"><Imdb source={require("../assets/imdb.png")} /></a>
-                <Overview>{currentItem.content.overview}</Overview>
+                  <Item>
+                    {currentItem.content.release_date && currentItem.content.release_date.substring(0, 4)}
+                  </Item>
+                  <Divider>•</Divider>
+                  <Item>
+                    {currentItem.content.runtime} min
+                  </Item>
+                  <Divider>•</Divider>
+                  <Item>
+                    {currentItem.content.genres &&
+                      currentItem.content.genres.map((genre, index) =>
+                        index === currentItem.content.genres.length - 1
+                          ? genre.name
+                          : `${genre.name} / `
+                      )}
+                  </Item>
+                  <Divider></Divider>
+                  <Overview>{currentItem.content.overview}</Overview>
+                </ItemContainer> : (currentItem.tab === "trailer") ? 
+                <ItemContainer>
+                  <Videos>
+                    <Carousel plugins={['arrows']}>
+                      {currentItem.content.videos.map(
+                        (video, index) => (
+                          <Video title={index} width="90%" height="400px" src={`https://www.youtube.com/embed/${video.key}?mute=1`} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></Video>
+                        )
+                      )}
+                    </Carousel>
+                  </Videos>
                 </ItemContainer> : 
                 <ItemContainer>
-                    <SmallTitle>Companies : </SmallTitle>
                     <Cnames>
                       {currentItem.content.production_companies.length > 0 ? currentItem.content.production_companies.map(
                         (company, index) => company &&
@@ -173,7 +225,6 @@ const MovieDetail = ({data}) => {
                               : `${company.name} / `)
                       ) : "No Companies"}
                     </Cnames>
-                    <SmallTitle>Countries : </SmallTitle>
                     <Cnames>
                       {currentItem.content.production_countries.length > 0 ? currentItem.content.production_countries.map(
                         (country, index) => country &&
@@ -182,6 +233,26 @@ const MovieDetail = ({data}) => {
                               : `${country.name} / `)
                       ) : "No Countries"}
                     </Cnames>
+                    <Casts>
+                    {currentItem.content.casts.map(
+                      (cast, index) => (
+                        <Cast>
+                          <ImageContainer>
+                          <Image
+                          bgUrl={
+                              cast.profile_path
+                              ? `https://image.tmdb.org/t/p/original${cast.profile_path}`
+                              : require("../assets/noPosterSmall.png")
+                          }
+                          />
+                          </ImageContainer>
+                          <Stitle>
+                              {cast.name}
+                          </Stitle>
+                        </Cast>
+                      )
+                    )}
+                    </Casts>
                 </ItemContainer>
             }
         </Data>
@@ -203,14 +274,20 @@ MovieDetail.propTypes = {
         genres: PropTypes.array,
         imdb_id: PropTypes.string,
         overview: PropTypes.string,
-        videos: PropTypes.array
       })
     }),
     PropTypes.shape({
       tab: PropTypes.string,
       content: PropTypes.shape({
         production_companies: PropTypes.array,
-        production_countries: PropTypes.array
+        production_countries: PropTypes.array,
+        casts: PropTypes.array
+      })
+    }),
+    PropTypes.shape({
+      tab: PropTypes.string,
+      content: PropTypes.shape({
+        videos: PropTypes.array
       })
     }),
   ),

@@ -39,7 +39,7 @@ export default function Detail() {
                 genres: result.genres,
                 imdb_id: result.imdb_id,
                 overview: result.overview,
-                videos: result.videos.results
+                
               }         
           },
           {
@@ -47,6 +47,13 @@ export default function Detail() {
             content: {
               production_companies: result.production_companies,
               production_countries: result.production_countries,
+              casts: result.credits.cast,
+            }
+          },
+          {
+            tab: "trailer",
+            content: {
+              videos: result.videos.results
             }
           }
         ];
@@ -72,13 +79,19 @@ export default function Detail() {
             content: {
               production_companies: result.production_companies,
               production_countries: result.production_countries,
+              casts: result.credits.cast,
+            }
+          },
+          {
+            tab: "trailer",
+            content: {
+              videos: result.videos.results
             }
           },
           {
             tab: "seasons",
             content: {
               seasons: result.seasons
-
             }
           }
         ];
