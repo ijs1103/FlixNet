@@ -240,7 +240,7 @@ const TvDetail = ({data}) => {
                     </Casts>
                 </ItemContainer> : (currentItem.tab === "trailer") ? 
                 <ItemContainer>
-                  {/*<Videos>
+                  <Videos>
                   {currentItem.content.videos && 
                     <Carousel plugins={['arrows']}>
                       {currentItem.content.videos.map(
@@ -250,7 +250,7 @@ const TvDetail = ({data}) => {
                       )}
                         </Carousel>
                   }
-                  </Videos>*/}
+                  </Videos>
                 </ItemContainer> :
                 <ItemContainer>
                     <Scontainer>
