@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/FlixNet/static/media/imdb.f67f7205.png"
   },
   {
-    "revision": "08ce92db58764e33abdf5752a9d56214",
+    "revision": "9b9bba7b3c003abb5eb1b5b207fa5513",
     "url": "/FlixNet/index.html"
   }
 ];
