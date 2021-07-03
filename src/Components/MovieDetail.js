@@ -3,7 +3,6 @@ import Helmet from "react-helmet";
 import PropTypes from "prop-types";
 import UseTabs  from "../Components/UseTabs";
 import styled from "styled-components";
-import imdbcon from "../assets/imdb.png";
 import Carousel from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
 
@@ -83,10 +82,6 @@ const Imdb = styled.img`
   margin-left: 1.5rem;
   width: 3rem;
 `;
-
-Imdb.defaultProps = {
-  src: imdbcon,
-};
 
 const Divider = styled.span`
   margin: 0 20px;
