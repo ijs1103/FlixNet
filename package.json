@@ -1,7 +1,7 @@
 {
   "name": "nomflix",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@brainhubeu/react-carousel": "^2.0.4",
     "axios": "^0.18.0",
