@@ -240,7 +240,7 @@ const TvDetail = ({data}) => {
                     </Casts>
                 </ItemContainer> : (currentItem.tab === "trailer") ? 
                 <ItemContainer>
-                  <Videos>
+                  {/*<Videos>
                   {currentItem.content.videos && 
                     <Carousel plugins={['arrows']}>
                       {currentItem.content.videos.map(
@@ -248,9 +248,9 @@ const TvDetail = ({data}) => {
                           <Video key={video.key} title={index} width="90%" height="400px" src={`https://www.youtube.com/embed/${video.key}?mute=1`} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></Video>
                         )
                       )}
-                    </Carousel>
+                        </Carousel>
                   }
-                  </Videos>
+                  </Videos>*/}
                 </ItemContainer> :
                 <ItemContainer>
                     <Scontainer>
