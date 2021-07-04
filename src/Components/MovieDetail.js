@@ -84,9 +84,9 @@ const Imdb = styled.img`
   width: 3rem;
 `;
 
-// Imdb.defaultProps = {
-//   src: imdbcon,
-// };
+Imdb.defaultProps = {
+  src: imdbcon,
+};
 
 const Divider = styled.span`
   margin: 0 20px;
@@ -207,7 +207,7 @@ const MovieDetail = ({data}) => {
                 </ItemContainer> : (currentItem.tab === "trailer") ? 
                 <ItemContainer>
                   <Videos>
-                    {currentItem.content.videos && 
+                    {currentItem.content.videos.length > 0 ? 
                     <Carousel plugins={['arrows']}>
                       {currentItem.content.videos.map(
                         (video, index) => (
@@ -215,7 +215,7 @@ const MovieDetail = ({data}) => {
                         )
                       )}
                     </Carousel>
-                    }
+                    : null}
                   </Videos>
                 </ItemContainer> : 
                 <ItemContainer>
