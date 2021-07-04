@@ -3,8 +3,8 @@ import Helmet from "react-helmet";
 import PropTypes from "prop-types";
 import UseTabs  from "../Components/UseTabs";
 import styled from "styled-components";
-import Carousel from "@brainhubeu/react-carousel";
-import "@brainhubeu/react-carousel/lib/style.css";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; 
+import { Carousel } from 'react-responsive-carousel';
 
   const Container = styled.div`
     height: calc(100vh - 50px);
