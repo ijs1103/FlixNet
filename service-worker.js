@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/FlixNet/precache-manifest.5048795fe5d441287d8b678a987e417c.js"
+  "/FlixNet/precache-manifest.b33aea1981b576d1200081d58ffb8c25.js"
 );
 
 workbox.clientsClaim();
