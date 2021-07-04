@@ -84,9 +84,9 @@ const Imdb = styled.img`
   width: 3rem;
 `;
 
-Imdb.defaultProps = {
-  src: imdbcon,
-};
+// Imdb.defaultProps = {
+//   src: imdbcon,
+// };
 
 const Divider = styled.span`
   margin: 0 20px;
