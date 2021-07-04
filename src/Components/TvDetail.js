@@ -3,8 +3,8 @@ import Helmet from "react-helmet";
 import PropTypes from "prop-types";
 import UseTabs  from "../Components/UseTabs";
 import styled from "styled-components";
-import Carousel from "@brainhubeu/react-carousel";
-import "@brainhubeu/react-carousel/lib/style.css";
+// import Carousel from "@brainhubeu/react-carousel";
+// import "@brainhubeu/react-carousel/lib/style.css";
 
   const Container = styled.div`
     height: calc(100vh - 50px);
@@ -240,7 +240,7 @@ const TvDetail = ({data}) => {
                     </Casts>
                 </ItemContainer> : (currentItem.tab === "trailer") ? 
                 <ItemContainer>
-                  <Videos>
+                  {/* <Videos>
                   {currentItem.content.videos && 
                     <Carousel plugins={['arrows']}>
                       {currentItem.content.videos.map(
@@ -250,7 +250,7 @@ const TvDetail = ({data}) => {
                       )}
                         </Carousel>
                   }
-                  </Videos>
+                  </Videos> */}
                 </ItemContainer> :
                 <ItemContainer>
                     <Scontainer>
