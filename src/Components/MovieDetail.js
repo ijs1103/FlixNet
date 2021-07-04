@@ -3,7 +3,6 @@ import Helmet from "react-helmet";
 import PropTypes from "prop-types";
 import UseTabs  from "../Components/UseTabs";
 import styled from "styled-components";
-import imdbcon from "../assets/imdb.png";
 import Carousel from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
 
@@ -78,15 +77,6 @@ const ItemContainer = styled.div`
 `;
 
 const Item = styled.span``;
-
-const Imdb = styled.img`
-  margin-left: 1.5rem;
-  width: 3rem;
-`;
-
-Imdb.defaultProps = {
-  src: imdbcon,
-};
 
 const Divider = styled.span`
   margin: 0 20px;
@@ -176,7 +166,7 @@ const MovieDetail = ({data}) => {
           }
         />
         <Data>
-          <Title>{data[0].content.original_title}<a href={`https://www.imdb.com/title/${data[0].content.imdb_id}`} target="_blank" rel="noopener noreferrer"><Imdb source={require("../assets/imdb.png")} /></a></Title>
+          <Title>{data[0].content.original_title}<a href={`https://www.imdb.com/title/${data[0].content.imdb_id}`} target="_blank" rel="noopener noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/1200px-IMDB_Logo_2016.svg.png" width="5%" style={{marginLeft: 1.5 + 'rem'}}/></a></Title>
 
           <TabMenu>
             {data.map(
