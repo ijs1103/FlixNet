@@ -34,7 +34,6 @@ const Container = styled.div`
     position: relative;
     z-index: 1;
     height: 100%;
-    
   `;
 
   const Cover = styled.div`
@@ -56,7 +55,7 @@ const Title = styled.p`
   font-size: 2.5rem;
 `;
 const TabButton = styled.div`
-    width: 33%;
+    width: 25%;
     color: ${props => (props.current ? "white" : "darkgrey")};
     font-size: 1.5rem;
     text-align: center;
@@ -88,17 +87,6 @@ const Overview = styled.p`
   line-height: 1.5;
 `;
 
-const Cnames = styled.p`
-  font-size: 1.5rem;
-  margin-top: 1rem;
-  opacity: 0.7;
-`;
-
-const Videos = styled.div`
-  height: 100%;
-`;
-const Video = styled.iframe`
-`;
 const Image = styled.div`
   background-image: url(${props => props.bgUrl});
   width: 125px;
@@ -124,7 +112,7 @@ const Casts = styled.div`
   overflow-x: scroll;
   overflow-y: hidden;
   ::-webkit-scrollbar {
-    height: 4px;
+  height: 4px;
   }
   ::-webkit-scrollbar-track {
   background-color: transparent;
@@ -132,16 +120,23 @@ const Casts = styled.div`
   ::-webkit-scrollbar-thumb {
   border-radius: 5px;
   background-color: yellow;
-  opacity: 0.7;
-  }
-  ::-webkit-scrollbar-button {
-  width: 0;
-  height: 0;
   }
 `;
 
 const Cast = styled.div`
   margin-right: 1.5rem;
+`;
+
+const Cnames = styled.p`
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  opacity: 0.7;
+`;
+
+const Videos = styled.div`
+  height: 100%;
+`;
+const Video = styled.iframe`
 `;
 
 const MovieDetail = ({data}) => {

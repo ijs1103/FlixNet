@@ -9,12 +9,11 @@ import { moviesApi, tvApi } from "../api";
 export default function Detail() {
 
   const [data, setData] = useState([]);
-  const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   let isMovie = useLocation().pathname.includes("/movie/");
   let history = useHistory();
   let params = useParams();
-
+  let contents = [];
   async function getDetail() {
     
     const parsedId = parseInt(params.id);
@@ -22,11 +21,10 @@ export default function Detail() {
     if (isNaN(parsedId)) {
       return history.push("/");
     }
-    let contents = [];
+    
     try {
       if (isMovie) {
         const { data: result } = await moviesApi.movieDetail(parsedId);
-        console.log(result);
         contents = [
           {   
               tab: "info",
@@ -38,8 +36,7 @@ export default function Detail() {
                 runtime: result.runtime,
                 genres: result.genres,
                 imdb_id: result.imdb_id,
-                overview: result.overview,
-                
+                overview: result.overview,  
               }         
           },
           {
@@ -57,7 +54,6 @@ export default function Detail() {
             }
           }
         ];
-        setData(contents);
       } else {
         const { data: result } = await tvApi.showDetail(parsedId);
         contents = [
@@ -95,14 +91,12 @@ export default function Detail() {
             }
           }
         ];
-        setData(contents);
       }
+      setData(contents);
     } catch {
       console.log("error");
-      setError("Can't find anything.");
     } finally {
       setLoading(false);
-      
     }
   }
 
@@ -115,7 +109,7 @@ export default function Detail() {
   return (loading ? (
     <>
       <Helmet>
-        <title>Loading | Nomflix</title>
+        <title>Loading | FlixNet</title>
       </Helmet>
       <Loader />
     </>

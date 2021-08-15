@@ -2,7 +2,6 @@ import { useState } from "react";
 
 const UseTabs = (initTab, allTabs) => {
     if (!allTabs || !Array.isArray(allTabs)) {
-        console.log("what the ...");
         return;
     }
 

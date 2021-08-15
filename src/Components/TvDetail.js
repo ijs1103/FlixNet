@@ -34,7 +34,6 @@ import { Carousel } from 'react-responsive-carousel';
     position: relative;
     z-index: 1;
     height: 100%;
-
   `;
 
   const Cover = styled.div`
@@ -50,7 +49,6 @@ import { Carousel } from 'react-responsive-carousel';
     width: 70%;
     margin-left: 1rem;
     overflow-y: scroll;
-
   `;
 
 const Title = styled.h3`
@@ -74,12 +72,13 @@ const TabMenu = styled.div`
 
 const ItemContainer = styled.div`
   margin: 1rem 0;
+  height: 70%;
 `;
 
 const Item = styled.span``;
 
 const Divider = styled.span`
-  margin: 0 10px;
+  margin: 0 20px;
 `;
 
 const Overview = styled.p`
@@ -110,23 +109,12 @@ const ImageContainer = styled.div`
 
 const Stitle = styled.span`
   display: block;
+  color: rgba(255, 255, 255, 0.5);
 `;
 
 const Year = styled.span`
   font-size: 0.5rem;
   color: rgba(255, 255, 255, 0.5);
-`;
-
-const Cnames = styled.p`
-  font-size: 1.5rem;
-  margin-top: 1rem;
-  opacity: 0.7;
-`;
-
-const Videos = styled.div`
-  height: 100%;
-`;
-const Video = styled.iframe`
 `;
 
 const Casts = styled.div`
@@ -149,6 +137,20 @@ const Casts = styled.div`
 const Cast = styled.div`
   margin-right: 1.5rem;
 `;
+
+
+const Cnames = styled.p`
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  opacity: 0.7;
+`;
+
+const Videos = styled.div`
+  height: 100%;
+`;
+const Video = styled.iframe`
+`;
+
 
 const TvDetail = ({data}) => {
     const { currentItem, changeItem } = UseTabs(0, data);
