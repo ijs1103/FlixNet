@@ -31,21 +31,25 @@ const SearchPresenter = ({
   error,
   updateTerm
 }) => (
-  <Container>
+  <>
     <Helmet>
-      <title>Search | Nomflix</title>
+      <title>Search | FlixNet</title>
     </Helmet>
-    <Form onSubmit={handleSubmit}>
-      <Input
-        placeholder="Search Movies or TV Shows..."
-        value={searchTerm}
-        onChange={updateTerm}
-      />
-    </Form>
+    
     {loading ? (
       <Loader />
     ) : (
-      <>
+      <Container>
+      <Helmet>
+        <title>Search | FlixNet</title>
+      </Helmet>
+      <Form onSubmit={handleSubmit}>
+          <Input
+            placeholder="Search Movies or TV Shows..."
+            value={searchTerm}
+            onChange={updateTerm}
+          />
+      </Form>
         {movieResults && movieResults.length > 0 && (
           <Section title="Movie Results">
             {movieResults.map(movie => (
@@ -82,9 +86,9 @@ const SearchPresenter = ({
           movieResults.length === 0 && (
             <Message text="Nothing found" color="#95a5a6" />
           )}
-      </>
+          </Container>
     )}
-  </Container>
+    </>
 );
 
 SearchPresenter.propTypes = {
