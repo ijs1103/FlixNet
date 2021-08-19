@@ -7,13 +7,13 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   font-size: 28px;
-  margin-top: 20px;
+  //margin-top: 20px;
+  background-color: rgb(0,0,0);
 `;
+
 
 export default () => (
   <Container>
-    <span role="img" aria-label="Loading">
-      ⏰
-    </span>
+    <img src="https://miro.medium.com/max/1400/1*e_Loq49BI4WmN7o9ItTADg.gif" />
   </Container>
 );

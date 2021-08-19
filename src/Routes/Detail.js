@@ -2,18 +2,18 @@ import React, {useState, useEffect} from "react";
 import { useLocation, useParams, useHistory } from "react-router-dom";
 import Helmet from "react-helmet";
 import Loader from "Components/Loader";
-import MovieDetail from "Components/MovieDetail";
-import TvDetail from "Components/TvDetail";
+import { contents } from "Components/handleData";
+import DetailPage from "Components/DetailPage";
 import { moviesApi, tvApi } from "../api";
 
 export default function Detail() {
-
+  
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   let isMovie = useLocation().pathname.includes("/movie/");
   let history = useHistory();
   let params = useParams();
-  let contents = [];
+  let datas = [];
   async function getDetail() {
     
     const parsedId = parseInt(params.id);
@@ -25,74 +25,12 @@ export default function Detail() {
     try {
       if (isMovie) {
         const { data: result } = await moviesApi.movieDetail(parsedId);
-        contents = [
-          {   
-              tab: "info",
-              content: {
-                backdrop_path: result.backdrop_path,
-                poster_path: result.poster_path,
-                original_title: result.original_title,
-                release_date: result.release_date,
-                runtime: result.runtime,
-                genres: result.genres,
-                imdb_id: result.imdb_id,
-                overview: result.overview,  
-              }         
-          },
-          {
-            tab: "production",
-            content: {
-              production_companies: result.production_companies,
-              production_countries: result.production_countries,
-              casts: result.credits.cast,
-            }
-          },
-          {
-            tab: "trailer",
-            content: {
-              videos: result.videos.results
-            }
-          }
-        ];
+        datas = contents(result);
       } else {
         const { data: result } = await tvApi.showDetail(parsedId);
-        contents = [
-          { 
-            tab: "info",
-            content: {
-              backdrop_path: result.backdrop_path,
-              poster_path: result.poster_path,
-              original_name: result.original_name,
-              first_air_date: result.first_air_date,
-              episode_run_time: result.episode_run_time,
-              genres: result.genres,
-              overview: result.overview,
-              videos: result.videos.results
-            }   
-          },
-          {
-            tab: "production",
-            content: {
-              production_companies: result.production_companies,
-              production_countries: result.production_countries,
-              casts: result.credits.cast,
-            }
-          },
-          {
-            tab: "trailer",
-            content: {
-              videos: result.videos.results
-            }
-          },
-          {
-            tab: "seasons",
-            content: {
-              seasons: result.seasons
-            }
-          }
-        ];
-      }
-      setData(contents);
+        datas= contents(result);
+      } 
+      setData(datas);
     } catch {
       console.log("error");
     } finally {
@@ -113,5 +51,9 @@ export default function Detail() {
       </Helmet>
       <Loader />
     </>
-  ) : (isMovie ? <MovieDetail data={data} /> : <TvDetail data={data} />));
+  ) : <DetailPage data={data}/>);
 }
+
+
+
+
