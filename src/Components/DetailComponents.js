@@ -108,7 +108,7 @@ color: rgba(255, 255, 255, 0.5);
 
  Casts: styled.div`
 height: 55%;
-margin-top: 2rem;
+margin: 1rem auto;
 display: flex;
 overflow-x: scroll;
 overflow-y: hidden;

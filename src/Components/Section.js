@@ -1,6 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { DetailComponents } from "./DetailComponents";
+
+const Flow = styled(DetailComponents.Casts)`
+  ::-webkit-scrollbar-thumb {
+background-color: transparent;
+}
+`;
 
 const Container = styled.div`
   :not(:last-child) {
@@ -13,17 +20,17 @@ const Title = styled.span`
   font-weight: 600;
 `;
 
-const Grid = styled.div`
-  margin-top: 25px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 125px);
-  grid-gap: 25px;
-`;
+// const Grid = styled.div`
+//   margin-top: 25px;
+//   display: grid;
+//   grid-template-columns: repeat(auto-fill, 125px);
+//   grid-gap: 25px;
+// `;
 
 const Section = ({ title, children }) => (
   <Container>
     <Title>{title}</Title>
-    <Grid>{children}</Grid>
+    <Flow>{children}</Flow>
   </Container>
 );
 

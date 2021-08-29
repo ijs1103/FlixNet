@@ -3,13 +3,9 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const Container = styled.div`
-  font-size: 12px;
-`;
-
 const Image = styled.div`
   background-image: url(${props => props.bgUrl});
-  height: 180px;
+  height: 300px;
   background-size: cover;
   border-radius: 4px;
   background-position: center center;
@@ -21,6 +17,7 @@ const Rating = styled.span`
   right: 5px;
   position: absolute;
   opacity: 0;
+  color: white;
   transition: opacity 0.1s linear;
 `;
 
@@ -39,12 +36,27 @@ const ImageContainer = styled.div`
 
 const Title = styled.span`
   display: block;
-  margin-bottom: 3px;
+  font-size: 1rem;
+  margin: 10px 0;
 `;
 
 const Year = styled.span`
   font-size: 10px;
   color: rgba(255, 255, 255, 0.5);
+`;
+
+const Container = styled.div`
+  font-size: 12px;
+  margin-right: 1.5rem;
+  width: 180px;
+  &:hover {
+    ${Title} {
+      color: red;
+    }
+    ${Year} {
+      color: white;
+    }
+  }
 `;
 
 const Poster = ({ id, imageUrl, title, rating, year, isMovie = false }) => (
@@ -54,7 +66,7 @@ const Poster = ({ id, imageUrl, title, rating, year, isMovie = false }) => (
         <Image
           bgUrl={
             imageUrl
-              ? `https://image.tmdb.org/t/p/w300${imageUrl}`
+              ? `https://image.tmdb.org/t/p/w500${imageUrl}`
               : require("../assets/noPosterSmall.png")
           }
         />

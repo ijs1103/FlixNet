@@ -1,32 +1,11 @@
 import React from "react";
 import {DetailComponents} from "Components/DetailComponents";
 import Helmet from "react-helmet";
-import UseTabs  from "../Components/UseTabs";
+import UseTabs  from "./UseTabs";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; 
 import { Carousel } from 'react-responsive-carousel';
 
-const {Container,
-    Backdrop,
-    Contents,
-    Cover,
-    Data,
-    Title,
-    TabButton,
-    TabMenu,
-    ItemContainer,
-    Item,
-    Divider,
-    Overview,
-    Image,
-    ImageContainer,
-    Stitle,
-    Casts,
-    Cast,
-    Cnames,
-    Videos,
-    Video,
-    Scontainer,
-    Year
+const {Container,Backdrop,Contents,Cover,Data,Title,TabButton,TabMenu,ItemContainer,Item,Divider,Overview,Image,ImageContainer,Stitle,Casts,Cast,Cnames,Videos,Video,Scontainer,Year
   } = DetailComponents;
 
 const noImage = require("../assets/noPosterSmall.png");
@@ -97,7 +76,7 @@ const renderSwitch = (current) => {
         return <ItemContainer>
         <Videos>
           {current.content.videos.results.length > 0 ? 
-          <Carousel plugins={['arrows']}>
+          <Carousel plugins={['arrows']} showThumbs={false} showStatus={false} showIndicators={false}>
             {current.content.videos.results.map(
               (video, index) => (
                 <Video key={video.key} title={index} width="90%" height="400px" src={`https://www.youtube.com/embed/${video.key}?mute=1`} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></Video>
@@ -157,11 +136,11 @@ const DetailPage = ({data}) => {
           }
         />
         <Data>
-          <Title>{commonData.original_title ? commonData.original_title : commonData.original_name}{commonData.imdb_id ? <a href={`https://www.imdb.com/title/${commonData.imdb_id}`} target="_blank" rel="noopener noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/1200px-IMDB_Logo_2016.svg.png" width="5%" style={{marginLeft: 1.5 + 'rem'}}/></a>: null}</Title>
+          <Title>{commonData.original_title ? commonData.original_title : commonData.original_name}{commonData.imdb_id ? <a href={`https://www.imdb.com/title/${commonData.imdb_id}`} target="_blank" rel="noopener noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/1200px-IMDB_Logo_2016.svg.png" width="5%" style={{marginLeft: 1.5 + 'rem'}} alt="imdbLogo" /></a>: null}</Title>
           <TabMenu>
             {data.map(
                   (section, index) => (
-                    <TabButton key={index} blocked={section.content===undefined}current={currentItem.tab===section.tab} onClick={() => changeItem(index)}>{section.tab}</TabButton>
+                    <TabButton key={index} blocked={section.content===undefined} current={currentItem.tab===section.tab} onClick={() => changeItem(index)}>{section.tab}</TabButton>
             ))}
           </TabMenu>
           {renderSwitch(currentItem)}

@@ -7,8 +7,10 @@ import Loader from "../../Components/Loader";
 import Message from "../../Components/Message";
 import Poster from "../../Components/Poster";
 
+
 const Container = styled.div`
   padding: 20px;
+  margin: 0 10%;
 `;
 
 const HomePresenter = ({ nowPlaying, popular, upcoming, loading, error }) => (
@@ -20,12 +22,23 @@ const HomePresenter = ({ nowPlaying, popular, upcoming, loading, error }) => (
       <Loader />
     ) : (
       <Container>
-        <Helmet>
-          <title>Movies | FlixNet</title>
-        </Helmet>
-        
+         {popular && popular.length > 0 && (
+          <Section title="요즘 핫한 영화🔥">
+            {popular.map(movie => (
+              <Poster
+                key={movie.id}
+                id={movie.id}
+                imageUrl={movie.poster_path}
+                title={movie.original_title}
+                rating={movie.vote_average}
+                year={movie.release_date ? movie.release_date.substring(0, 4) : "none"}
+                isMovie={true}
+              />
+            ))}
+          </Section>
+        )}
         {nowPlaying && nowPlaying.length > 0 && (
-          <Section title="Now Playing">
+          <Section title="개봉 중 영화">
             {nowPlaying.map(movie => (
               <Poster
                 key={movie.id}
@@ -40,7 +53,7 @@ const HomePresenter = ({ nowPlaying, popular, upcoming, loading, error }) => (
           </Section>
         )}
         {upcoming && upcoming.length > 0 && (
-          <Section title="Upcoming Movies">
+          <Section title="다가올 영화">
             {upcoming.map(movie => (
               <Poster
                 key={movie.id}
@@ -54,21 +67,7 @@ const HomePresenter = ({ nowPlaying, popular, upcoming, loading, error }) => (
             ))}
           </Section>
         )}
-        {popular && popular.length > 0 && (
-          <Section title="Popular Movies">
-            {popular.map(movie => (
-              <Poster
-                key={movie.id}
-                id={movie.id}
-                imageUrl={movie.poster_path}
-                title={movie.original_title}
-                rating={movie.vote_average}
-                year={movie.release_date ? movie.release_date.substring(0, 4) : "none"}
-                isMovie={true}
-              />
-            ))}
-          </Section>
-        )}
+        
         {error && <Message color="#e74c3c" text={error} />}
       </Container>
     )}

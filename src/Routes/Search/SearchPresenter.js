@@ -9,6 +9,7 @@ import Poster from "../../Components/Poster";
 
 const Container = styled.div`
   padding: 20px;
+  margin: 0 10%;
 `;
 
 const Form = styled.form`
@@ -39,19 +40,17 @@ const SearchPresenter = ({
     {loading ? (
       <Loader />
     ) : (
-      <Container>
-      <Helmet>
-        <title>Search | FlixNet</title>
-      </Helmet>
+      <Container> 
       <Form onSubmit={handleSubmit}>
           <Input
-            placeholder="Search Movies or TV Shows..."
+            placeholder="검색..."
             value={searchTerm}
             onChange={updateTerm}
+            autoFocus
           />
       </Form>
         {movieResults && movieResults.length > 0 && (
-          <Section title="Movie Results">
+          <Section title="영화">
             {movieResults.map(movie => (
               <Poster
                 key={movie.id}
@@ -66,7 +65,7 @@ const SearchPresenter = ({
           </Section>
         )}
         {tvResults && tvResults.length > 0 && (
-          <Section title="TV Show Results">
+          <Section title="드라마">
             {tvResults.map(show => (
               <Poster
                 key={show.id}
@@ -84,7 +83,7 @@ const SearchPresenter = ({
           movieResults &&
           tvResults.length === 0 &&
           movieResults.length === 0 && (
-            <Message text="Nothing found" color="#95a5a6" />
+            <Message text="결과 없음" color="#95a5a6" />
           )}
           </Container>
     )}
