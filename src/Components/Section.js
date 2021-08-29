@@ -16,7 +16,7 @@ const Container = styled.div`
 `;
 
 const Title = styled.span`
-  font-size: 14px;
+  font-size: 1.3rem;
   font-weight: 600;
 `;
 

@@ -3,7 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 import styled from "styled-components";
 
 const Header = styled.header`
-  font-size: 1rem;
+  font-size: 1.3rem;
   color: white;
   position: fixed;
   top: 0;
@@ -51,7 +51,7 @@ const SearchLogo = styled.div`
 const Search = styled.input`
   all: unset;
   height: 35px;
-  font-size: 1rem;
+  //font-size: 1rem;
   padding-left: 40px;
   color: rgb(133, 142, 150);
   background-color: rgb(32, 37, 40, 0.7);

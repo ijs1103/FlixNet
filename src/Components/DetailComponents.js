@@ -26,7 +26,8 @@ z-index: 0;
 
  Contents: styled.div`
 display: flex;
-width: 100%;
+//width: 100%;
+margin: 0 10%;
 position: relative;
 z-index: 1;
 height: 100%;
@@ -68,8 +69,8 @@ margin: 0.5rem 0px;
 `,
 
  ItemContainer: styled.div`
-margin: 1rem 0;
-height: 70%;
+margin: 2rem 1rem;
+height: 100%;
 `,
 
  Item: styled.span`
@@ -102,18 +103,18 @@ position: relative;
 `,
 
  Stitle: styled.div`
-font-size: 0.8rem;
-color: rgba(255, 255, 255, 0.5);
+ margin-top: 0.5rem;
+font-size: 1rem;
+color: white;
 `,
 
  Casts: styled.div`
-height: 55%;
-margin: 1rem auto;
+margin-top: 2rem;
 display: flex;
 overflow-x: scroll;
 overflow-y: hidden;
 ::-webkit-scrollbar {
-height: 4px;
+height: 0.3rem;
 }
 ::-webkit-scrollbar-track {
 background-color: transparent;
@@ -135,7 +136,6 @@ opacity: 0.7;
 `,
 
 Videos: styled.div`
-height: 100%;
 `,
  Video: styled.iframe`
 `,

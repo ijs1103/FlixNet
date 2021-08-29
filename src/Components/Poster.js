@@ -12,12 +12,19 @@ const Image = styled.div`
   transition: opacity 0.1s linear;
 `;
 
-const Rating = styled.span`
-  bottom: 5px;
-  right: 5px;
+const Detail = styled.span`
+  top: 50%;
+  left: 50%;
+  width: 80%;
   position: absolute;
+  transform:translate(-50%, -50%);
+  font-size: 1rem;
+  padding: 10px 10px;
+  text-align: center;
   opacity: 0;
   color: white;
+  border: white 2px solid;
+  border-radius: 10px;
   transition: opacity 0.1s linear;
 `;
 
@@ -28,7 +35,7 @@ const ImageContainer = styled.div`
     ${Image} {
       opacity: 0.3;
     }
-    ${Rating} {
+    ${Detail} {
       opacity: 1;
     }
   }
@@ -39,22 +46,22 @@ const Title = styled.span`
   font-size: 1rem;
   margin: 10px 0;
 `;
-
-const Year = styled.span`
-  font-size: 10px;
+const SubContainer = styled.span`
+  display: flex;
+  justify-content: space-between;
+`;
+const SubTitle = styled.span`
+  display: block;
+  font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.5);
 `;
 
 const Container = styled.div`
-  font-size: 12px;
   margin-right: 1.5rem;
-  width: 180px;
+  width: 200px;
   &:hover {
     ${Title} {
       color: red;
-    }
-    ${Year} {
-      color: white;
     }
   }
 `;
@@ -70,18 +77,22 @@ const Poster = ({ id, imageUrl, title, rating, year, isMovie = false }) => (
               : require("../assets/noPosterSmall.png")
           }
         />
-
-        <Rating>
-          <span role="img" aria-label="rating">
-            ⭐️
-          </span>{" "}
-          {rating}/10
-        </Rating>
+        <Detail>
+          상세정보
+        </Detail>
       </ImageContainer>
       <Title>
         {title.length > 18 ? `${title.substring(0, 18)}...` : title}
       </Title>
-      <Year>{year && year.substring(0, 4)}</Year>
+      <SubContainer>
+      <SubTitle>{year && year.substring(0, 4)}</SubTitle>
+      <SubTitle>
+          <span role="img" aria-label="rating">
+            ⭐️
+          </span>{" "}
+          {rating}
+        </SubTitle>
+      </SubContainer>
     </Container>
   </Link>
 );

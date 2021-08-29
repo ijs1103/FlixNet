@@ -76,10 +76,10 @@ const renderSwitch = (current) => {
         return <ItemContainer>
         <Videos>
           {current.content.videos.results.length > 0 ? 
-          <Carousel plugins={['arrows']} showThumbs={false} showStatus={false} showIndicators={false}>
+          <Carousel plugins={['arrows']} showThumbs={false} showStatus={false} showIndicators={false} dynamicHeight={true}>
             {current.content.videos.results.map(
               (video, index) => (
-                <Video key={video.key} title={index} width="90%" height="400px" src={`https://www.youtube.com/embed/${video.key}?mute=1`} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></Video>
+                <Video key={video.key} title={index} width="90%" height="600px" src={`https://www.youtube.com/embed/${video.key}?mute=1`} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></Video>
               )
             )}
           </Carousel>
