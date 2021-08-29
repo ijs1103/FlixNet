@@ -27,7 +27,6 @@ z-index: 0;
  Contents: styled.div`
 display: flex;
 width: 100%;
-overflow-y: hidden;
 position: relative;
 z-index: 1;
 height: 100%;
