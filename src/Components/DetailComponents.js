@@ -44,33 +44,36 @@ border-radius: 5px;
 
  Data: styled.div`
 width: 70%;
-margin-left: 1rem;
+margin-left: 2rem;
 overflow-y: scroll;
 `,
 
  Title: styled.p`
-font-size: 2.5rem;
+font-size: 5rem;
 `,
  TabButton: styled.div`
 width: 25%;
 color: ${props => (props.current ? "white" : "darkgrey")};
-font-size: 1.5rem;
+font-size: 1rem;
 text-align: center;
 text-transform: capitalize;
 padding: 1rem;
-border-bottom: ${props => (props.current ? "yellow" : "transparent")} solid 2px;
+border-bottom: ${props => (props.current ? "yellow" : "transparent")} solid 3px;
 transition: border-bottom 0.5s ease-in-out;
 pointer-events: ${props => props.blocked ? "none" : "auto"};
 `,
 
  TabMenu: styled.div`
 display: flex;
-margin: 0.5rem 0px;
+margin-top: 2rem;
 `,
 
  ItemContainer: styled.div`
-margin: 2rem 1rem;
+ margin-top: 2rem;
 height: 100%;
+`,
+Items: styled.div`
+  margin-top: 2rem;
 `,
 
  Item: styled.span`
@@ -83,7 +86,7 @@ margin: 0 20px;
 
  Overview: styled.p`
 font-size: 1.5rem;
-margin-top: 20px;
+margin-top: 2rem;
 opacity: 0.7;
 line-height: 1.5;
 `,

@@ -5,7 +5,7 @@ import UseTabs  from "./UseTabs";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; 
 import { Carousel } from 'react-responsive-carousel';
 
-const {Container,Backdrop,Contents,Cover,Data,Title,TabButton,TabMenu,ItemContainer,Item,Divider,Overview,Image,ImageContainer,Stitle,Casts,Cast,Cnames,Videos,Video,Scontainer,Year
+const {Container,Backdrop,Contents,Cover,Data,Title,TabButton,TabMenu,ItemContainer,Item,Items,Divider,Overview,Image,ImageContainer,Stitle,Casts,Cast,Cnames,Videos,Video,Scontainer,Year
   } = DetailComponents;
 
 const noImage = require("../assets/noPosterSmall.png");
@@ -14,23 +14,24 @@ const renderSwitch = (current) => {
     switch(current.tab) {
       case 'info':
         return <ItemContainer>
-        <Item>
-          {current.content.release_date ? current.content.release_date.substring(0, 4) : current.content.first_air_date.substring(0, 4)}
-        </Item>
-        <Divider>•</Divider>
-        <Item>
-          {current.content.runtime ? current.content.runtime : current.content.episode_run_time} min
-        </Item>
-        <Divider>•</Divider>
-        <Item>
-          {current.content.genres &&
-            current.content.genres.map((genre, index) =>
-              index === current.content.genres.length - 1
-                ? genre.name
-                : `${genre.name} / `
-            )}
-        </Item>
-        <Divider></Divider>
+        <Items>
+          <Item>
+            {current.content.release_date ? current.content.release_date.substring(0, 4) : current.content.first_air_date.substring(0, 4)}
+          </Item>
+          <Divider>•</Divider>
+          <Item>
+            {current.content.runtime ? current.content.runtime : current.content.episode_run_time} min
+          </Item>
+          <Divider>•</Divider>
+          <Item>
+            {current.content.genres &&
+              current.content.genres.map((genre, index) =>
+                index === current.content.genres.length - 1
+                  ? genre.name
+                  : `${genre.name} / `
+              )}
+          </Item>
+        </Items>
         <Overview>{current.content.overview}</Overview>
       </ItemContainer>;
       case 'production':
@@ -79,7 +80,7 @@ const renderSwitch = (current) => {
           <Carousel plugins={['arrows']} showThumbs={false} showStatus={false} showIndicators={false} dynamicHeight={true}>
             {current.content.videos.results.map(
               (video, index) => (
-                <Video key={video.key} title={index} width="90%" height="600px" src={`https://www.youtube.com/embed/${video.key}?mute=1`} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></Video>
+                <Video key={video.key} title={index} width="90%" height="500px" src={`https://www.youtube.com/embed/${video.key}?mute=1`} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></Video>
               )
             )}
           </Carousel>
@@ -140,7 +141,7 @@ const DetailPage = ({data}) => {
           <TabMenu>
             {data.map(
                   (section, index) => (
-                    <TabButton key={index} blocked={section.content===undefined} current={currentItem.tab===section.tab} onClick={() => changeItem(index)}>{section.tab}</TabButton>
+                    <TabButton key={index} blocked={section.content===undefined} current={currentItem.tab===section.tab} onClick={() => changeItem(index)}>{section.tab && section.tab.toUpperCase()}</TabButton>
             ))}
           </TabMenu>
           {renderSwitch(currentItem)}
