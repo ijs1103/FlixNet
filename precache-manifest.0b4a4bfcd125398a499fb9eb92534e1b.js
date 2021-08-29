@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "8f45e66e4fa86159c9cf",
-    "url": "/FlixNet/static/js/main.8f45e66e.chunk.js"
+    "revision": "b2266698c7da7a3f981d",
+    "url": "/FlixNet/static/js/main.b2266698.chunk.js"
   },
   {
     "revision": "4766422fe130362f6a66",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/FlixNet/static/media/noPosterSmall.87a0eb6a.png"
   },
   {
-    "revision": "2af79d80bf6a740d4907f4d57cb93cea",
+    "revision": "58613f87b6aab9d4d0773fce03270f21",
     "url": "/FlixNet/index.html"
   }
 ];
